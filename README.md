@@ -14,3 +14,5 @@ Meu sistema recebe informações de cadastro do usuario, armazena as informaçõ
 "Dia 6 - refatoração e limpeza de código"
 Hoje aprendi que código ruim é prejudicial para a reutilização e manutenção do meu código, o tornando, um código feio visualmente e ruim de ser lido/compreendido.
 <br>
+Separar lógica do DOM me obrigou a pensar no processamento e manipulação dos dados antes de recebe-lo.
+<br>
