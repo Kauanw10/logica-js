@@ -20,3 +20,6 @@ Meu sistema recebe informações de cadastro do usuario, armazena as informaçõ
 "Dia 8 - manipulação avançada de arrays"
 - Hoje entendi que controlar dados significa preservar seu código.
 <br>
+"Dia 9 - regras de negócio e validações"
+- Hoje percebi que sem regras, um sistema está completamente vulnerável a qualquer ação ou código que o usuário tentar realizar dentro do sistema.
+<br>

@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Usuários</title>
+    <style>
+        body{
+            background-color: black;
+            color: white;
+        }
+    </style>
 </head>
 <body>
 
@@ -12,16 +18,18 @@
     <input type="text" name="nome" id="nome">
     <br><br>
     <label for="idade">Idade:</label>
-    <input type="number" id="idade">
+    <input type="number" id="idade" max="99">
     <br><br>
     <label for="profissao">Profissão:</label>
-    <input type="text" id="profissao">
+    <input type="text" id="profissao" maxlength="35">
     <br><br>
     <label for="status">Status:</label>
     <input type="checkbox" id="status" value="ativo"> Ativo
     <br><br>
     <button type="submit" onclick="processarDados()">Cadastrar</button>
 
+    <br><br>
+        <div id="erro" style="color: red;"></div>
     <br><br>
 
     <hr>
