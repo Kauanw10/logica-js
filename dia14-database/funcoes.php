@@ -1,21 +1,22 @@
 <?php 
     require_once "conexao.php";
+    require_once "auth.php";
 
     // Funções de Cadastro
     function validarCampoVazioCadastro($nome, $email, $senha){
         if ((empty($nome)) || (empty($email)) || (empty($senha))) {
             throw new Exception("Campo(s) Vázio(s)!");   
         }
-            return true;
-            exit;
+        return true;
+        exit;
     }
 
     function validarTamanho($nome, $email,$senha){
-            if ((strlen($nome)) < 3 || (strlen($senha)) < 3) {
-                throw new Exception("Tamanho minimo de 3 caracteres para Nome e/ou Senha!");
-            }
-            return true;
-            exit;
+        if ((strlen($nome)) < 3 || (strlen($senha)) < 3) {
+            throw new Exception("Tamanho minimo de 3 caracteres para Nome e/ou Senha!");
+        }
+        return true;
+        exit;
     }
 
     function mensagemRetorno($cadastrado) {
@@ -37,19 +38,17 @@
         exit;
     }
 
-    function validarSenhas($senhaDigitada, $senhaBanco, $emailUsuario){
+    function validarSenhas($senhaDigitada, $senhaBanco, $emailUsuario, $papel){
         $verificacao = password_verify($senhaDigitada,$senhaBanco);
-        if ($verificacao) {
+
+        try {
             $_SESSION['logado'] = true;
             $_SESSION['user_email'] = $emailUsuario;
-
-            echo "<script>
-            alert('Usuário Logado com Sucesso!');
-            window.location.href = 'listar.php';
-          </script>";
-        }else {
-            throw new Exception("Senha Incorreta");
-            exit;
+            $_SESSION['papel'] = $papel;
+            verificarLogin($verificacao, $papel);
+                
+        } catch (\Throwable $e) {
+            echo $e->getMessage();
         }
     }
 ?>

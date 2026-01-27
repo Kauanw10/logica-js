@@ -9,13 +9,15 @@
     try {
         validarCampoVazioLogin($email, $senhaDigitada);
 
-        $stmt = $pdo->prepare('SELECT email, senha FROM `usuarios` WHERE email = :email');
+        $stmt = $pdo->prepare('SELECT email, senha, papel FROM `usuarios` WHERE email = :email');
         $stmt->bindValue(':email', $email, PDO::PARAM_STR);
         $stmt->execute();
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
         if ($user) {
             $senhaBanco = $user['senha'];
-            validarSenhas($senhaDigitada, $senhaBanco, $user['email']);
+            $papel = $user['papel'];
+            
+            validarSenhas($senhaDigitada, $senhaBanco, $user['email'], $papel);
             
         }else {
             throw new Exception("E-mail não encontrado.");
