@@ -1,4 +1,6 @@
 <?php 
+    require_once "funcoes.php";
+
     $dsn = 'mysql:dbname=sistema;host=localhost';
     $user = 'root';
     $pass = '';
@@ -7,6 +9,11 @@
         $pdo = new PDO($dsn, $user, $pass);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     } catch (\PDOException $e) {
-        echo $e->getMessage();
+        registrarErro($e);
+        echo "<script>
+                alert('Ocorreu um problema. Tente novamente.');
+                window.history.back();
+            </script>";
+            exit;
     }
 ?>

@@ -54,14 +54,21 @@
         }
     }
 
-    // Função de Admin
-    // function validarAdmPage(){
-    //      if (!$_SESSION['papel'] === 'admin' || $_SESSION['logado'] !== true) {
-    //     echo "<script>
-    //         alert('Acesso Bloqueado!!');
-    //         window.history.back();
-    //       </script>";
-    //    exit;
-    // }
-    // }
+    // Função para Registro de ERROS
+    
+    function registrarErro($e) {
+    $arquivoLog = __DIR__ . '/../logs/erros.log';
+    // __DIR__ . '/../logs/erros.log' -> Retorna o caminho do diretório pára o arquivo atual, sai do diretório atual e vai para a pasta de logs no arquivo erros.log e guarda tudo na variavel $arquivoLog.
+
+    $mensagem = "[" . date('Y-m-d H:i:s') . "]" . PHP_EOL;
+    $mensagem .= "Mensagem: " . $e->getMessage() . PHP_EOL;
+    $mensagem .= "Arquivo: " . $e->getFile() . PHP_EOL;
+    $mensagem .= "Linha: " . $e->getLine() . PHP_EOL;
+    $mensagem .= "---------------------------------------" . PHP_EOL;
+    // Usamos PHP_EOL (EndOfLine) para pular linha de acordo com o sistema operacional
+
+    // 3. Gravamos no arquivo (o parâmetro '3' indica que é um arquivo específico)
+    error_log($mensagem, 3, $arquivoLog);
+}
+
 ?>
