@@ -42,3 +42,38 @@ Meu sistema recebe informações de cadastro do usuario, armazena as informaçõ
 5. Próximo passo (o que ainda falta?)
 - Organizar a lista visualmente melhor, talvez ordenando por ordem de cadastro.
 Criar um filtro para a ordem da lista.
+
+Semana 3 - sistema backend completo e auditado
+- O que o sistema faz?
+O sistema realiza o cadastro de usuários dentro de seu sistema que, de acordo com tipo da conta que o usuário foi cadastrado (user ou admin), ele lista as informções do próprio usuário logado no momento, caso seja admin (administrador), ele exibe as informções dos outros usuários cadastrados.
+
+- Tecnologias usadas
+HTML, CSS, JavaScript, PHP e MySQL
+
+- Funcionalidades implementadas
+1. Controle de acesso as informções de acordo com o tipo de conta
+2. Registro de erros
+3. Autênticação de acesso
+4. Controle de Sessão
+5. Validação de Cadastro e Login
+
+- Conceitos técnicos aplicados
+1. Proteção da Sessão
+2. Prepare/bind para evitar SQL Injections
+3. Pastas separadas
+4. Arquivos de Controle para controle do sistema
+5. Arquivos de Views, para manipulação de vizualização do site
+6. Salvamento de senhas Hash no banco de dados
+7. Separação de ambientes (Produção/Desenvolvimento)
+8. Funções de responsabilidades únicas
+9. Registro de erros em logs no sistema
+10. Arquivo de iniciação
+
+- O que você aprendeu construindo?
+Desenvolver ambientes separados, para tratar erros e resolve-los de forma mais facil, acertiva e eficiente.
+Desenvolver um arquivo de inicialização, que facilita para que meu sistema tenha como definir como se comportar dependendo do ambinete, o que o transforma em um sistema mais robusto.
+
+- Próximos passos planejados
+1. Mensagens de erros mais estilizadas
+2. Listagem com informações mais claras
+3. Edição das informações
